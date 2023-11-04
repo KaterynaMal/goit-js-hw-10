@@ -1,8 +1,8 @@
 import { fetchBreeds, fetchCatByBreed } from './cat-api';
 
 import SlimSelect from 'slim-select';
-
 import Notiflix from 'notiflix';
+
 
 const refs = {
   breedSelect: document.querySelector('.breed-select'),
@@ -13,7 +13,7 @@ const refs = {
 
 new SlimSelect('.breed-select');
 
-refs.breedSelect.style.width = '150px';
+refs.breedSelect.style.width = '200px';
 refs.breedSelect.style.height = '30px';
 refs.breedSelect.style.fontSize = '15px';
 
@@ -30,15 +30,15 @@ function showloader() {
     
 }
 
-function showError() {
-    refs.error.style.display = 'block';
-    hideLoader();
-}
-
 // function showError() {
-//   Notiflix.Notify.Error('Oops! Something went wrong. Try reloading the page.');
-//   hideLoader();
+//     refs.error.style.display = 'block';
+//     hideLoader();
 // }
+
+function showError() {
+  Notiflix.Notify.Failure('Oops! Something went wrong. Try reloading the page.');
+  hideLoader();
+}
 
 fetchBreeds()
   .then(breeds => {
@@ -73,7 +73,6 @@ refs.breedSelect.addEventListener('change', () => {
           
                 `;
         refs.catInfo.style.width = '800px';
-        // article.style.display = "block";
         refs.catInfo.style.display = 'block';
       })
       .catch(() => {

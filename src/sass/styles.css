@@ -22,9 +22,6 @@
 img {
     width: 800px;
    height: 500px;
-   
+   object-fit: cover;
 }
 
-/* .cat-info {
-    display: flex;
-} */
