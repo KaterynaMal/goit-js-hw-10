@@ -1,7 +1,6 @@
 import { fetchBreeds, fetchCatByBreed } from './cat-api';
 
 import SlimSelect from 'slim-select';
-import Notiflix from 'notiflix';
 
 const refs = {
   breedSelect: document.querySelector('.breed-select'),
@@ -9,8 +8,6 @@ const refs = {
   error: document.querySelector('.error'),
   catInfo: document.querySelector('.cat-info'),
 };
-
-new SlimSelect('.breed-select');
 
 refs.breedSelect.style.width = '200px';
 refs.breedSelect.style.height = '30px';
@@ -30,13 +27,6 @@ function showloader() {
 
 function showError() {
   refs.error.style.display = 'block';
-  hideLoader();
-}
-
-function showError() {
-  Notiflix.Notify.Failure(
-    'Oops! Something went wrong. Try reloading the page.'
-  );
   hideLoader();
 }
 
@@ -62,6 +52,8 @@ function Breeds(breeds) {
     return options.push(option);
   });
   refs.breedSelect.append(...options);
+
+  new SlimSelect('.breed-select');
 }
 
 function renderCatInfo(cat) {
