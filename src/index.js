@@ -26,8 +26,8 @@ function showloader() {
 }
 
 function showError() {
+  refs.catInfo.style.display = 'none';
   refs.error.style.display = 'block';
-  hideLoader();
 }
 
 fetchBreeds()
